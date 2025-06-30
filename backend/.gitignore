@@ -1,0 +1,17 @@
+# Node modules (big, unnecessary in git)
+node_modules/
+
+# Environment variables (sensitive data)
+.env
+
+# Log files
+logs/
+*.log
+npm-debug.log*
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Optional: for VS Code users
+.vscode/
