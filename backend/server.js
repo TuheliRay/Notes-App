@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 5000;
 
 const app = express();
 app.use(cors({
-  origin: 'https://notes-app-sand-gamma.vercel.app/',
+  origin: 'https://notes-app-sand-gamma.vercel.app',
   credentials: true
 }));
 app.use(express.json());
