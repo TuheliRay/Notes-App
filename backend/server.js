@@ -8,8 +8,7 @@ const app = express();
 app.use(cors({
   origin: [
     'https://notes-app-sand-gamma.vercel.app' 
-  ],
-  credentials: true
+  ]
 }));
 app.use(express.json());
 
