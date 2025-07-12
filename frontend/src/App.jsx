@@ -1,4 +1,4 @@
-// src/App.js
+const API_BASE_URL = import.meta.env.VITE_API_URL;
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Sidebar from "./components/Sidebar";
@@ -15,7 +15,7 @@ const App = () => {
 
   const fetchNotes = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/notes");
+      const res = await axios.get(`${API_BASE_URL}/api/notes`);
       setNotes(res.data);
     } catch (err) {
       console.error("Error fetching notes:", err);
@@ -24,7 +24,7 @@ const App = () => {
 
   const handleCreate = async () => {
     try {
-      const res = await axios.post("http://localhost:5000/api/notes", newNote);
+      const res = await axios.post(`${API_BASE_URL}/api/notes`, newNote);
       setNewNote({ title: "", content: "" });
       setSelectedNote(res.data);
       fetchNotes();
@@ -35,7 +35,7 @@ const App = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/notes/${id}`);
+      await axios.delete(`${API_BASE_URL}/api/notes/${id}`);
       if (selectedNote && selectedNote._id === id) setSelectedNote(null);
       fetchNotes();
     } catch (err) {
@@ -44,7 +44,7 @@ const App = () => {
   };
   const handleUpdate = async () => {
   try {
-    await axios.put(`http://localhost:5000/api/notes/${selectedNote._id}`, {
+    await axios.put(`${API_BASE_URL}/api/notes/${selectedNote._id}`, {
       title: selectedNote.title,
       content: selectedNote.content,
     });
