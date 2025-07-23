@@ -1,35 +1,45 @@
-/* Login.module.css */
+/* Universal box-sizing for predictable layouts */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 
 .login-page {
   margin: 0;
-  padding: 20px;
-  box-sizing: border-box;
+  padding: 24px; /* Consistent padding */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #0f172A;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  /* KEY CHANGE: Using grid for robust centering */
+  display: grid;
+  place-items: center;
   min-height: 100vh;
 }
 
 .login-wrapper {
   display: flex;
-  flex-direction: row;
-  width: 100%;
+  /* KEY CHANGE: Fluid width that scales with the viewport, capped at 900px */
+  width: 90vw;
   max-width: 900px;
-  /* KEY CHANGE: Removed fixed height. Height will now be determined by the content. */
-  background-color: #0a112b;
+  background-color: #111936; /* Unified background for a cleaner look */
   color: white;
   border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
   overflow: hidden;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); /* Added a subtle shadow */
+}
+
+.login-container {
+  padding: 40px;
+  text-align: center;
+  /* KEY CHANGE: Flex-basis for better proportion control */
+  flex: 1 1 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .login-image {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  flex: 1 1 50%;
+  /* KEY CHANGE: Hides the image by default, will be shown on larger screens */
+  display: none;
 }
 
 .login-image img {
@@ -38,65 +48,48 @@
   object-fit: cover;
 }
 
-.login-container {
-  background-color: #111936;
-  padding: 40px; /* Increased padding for better spacing */
-  width: 45%;
-  max-width: 420px;
-  min-width: 320px;
-  color: white;
-  text-align: center;
-  /* KEY CHANGE: Added flex properties to vertically center the form content. */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
 .login-container h2 {
   margin-bottom: 10px;
   font-size: 24px;
   font-weight: 700;
 }
 
+.login-container h5 {
+  color: #a0a8b8;
+  margin-bottom: 30px; /* Increased margin */
+}
+
 .login-container form {
   display: flex;
   flex-direction: column;
-  gap: 18px; /* Adjusted gap for better rhythm */
-  width: 100%; /* Ensure form takes full width of container */
-}
-
-.login-container h5 {
-  color: #a0a8b8;
-  margin-bottom: 25px;
+  gap: 16px;
+  width: 100%;
+  max-width: 350px; /* Constrains form width for readability */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .login-container input[type="text"],
 .login-container input[type="password"] {
   padding: 12px 15px;
   border-radius: 5px;
-  border: 1px solid #1e2a4a; /* Added a subtle border */
+  border: 1px solid #1e2a4a;
   background-color: #1e2a4a;
   color: white;
-  font-size: 14px;
+  font-size: 16px; /* KEY CHANGE: Larger font for better readability and touch experience */
   outline: none;
   transition: border-color 0.2s;
 }
 
-.login-container input[type="text"]:focus,
-.login-container input[type="password"]:focus {
-  border-color: #5a5df1; /* Highlight on focus */
-}
-
-.login-container input::placeholder {
-  color: #a0a8b8;
+.login-container input:focus {
+  border-color: #5a5df1;
 }
 
 .password-reset {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 13px;
-  color: #a0a8b8;
+  font-size: 14px; /* Increased font size */
 }
 
 .remember-me {
@@ -108,11 +101,6 @@
 .forgot-password a {
   color: #7b8dfb;
   text-decoration: none;
-  font-weight: 500;
-}
-
-.forgot-password a:hover {
-  text-decoration: underline;
 }
 
 .login-container button[type="submit"] {
@@ -122,21 +110,15 @@
   border-radius: 5px;
   color: white;
   font-weight: 600;
-  font-size: 15px;
+  font-size: 16px;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
   margin-top: 10px;
 }
 
-.login-container button[type="submit"]:hover {
-  background-color: #4b4ee0;
-}
-
 .register-link {
-  /* KEY CHANGE: Adjusted margin for more balanced spacing below the form. */
-  margin-top: 25px;
+  margin-top: 24px;
   font-size: 14px;
-  color: #a0a8b8;
 }
 
 .register-link a {
@@ -145,52 +127,41 @@
   font-weight: 500;
 }
 
-.register-link a:hover {
-  text-decoration: underline;
-}
-
 .login-message {
   color: #ff4d4f;
-  font-size: 0.9rem;
-  font-weight: 500;
+  font-size: 14px;
   height: 20px;
-  margin-top: 0; /* Adjusted margin */
 }
 
 
 /* --- Responsive Adjustments --- */
-@media (max-width: 768px) {
-  .login-wrapper {
-    flex-direction: column;
-  }
 
-  .login-container {
-    width: 100%;
-    max-width: none;
-    padding: 40px;
-  }
-
+/* Medium screens (tablets, small laptops) */
+@media (min-width: 768px) {
   .login-image {
-    height: 250px;
-    flex-shrink: 0;
+    /* KEY CHANGE: Show the image on screens 768px and wider */
+    display: flex;
   }
 }
 
+/* For small mobile phones, fine-tune spacing */
 @media (max-width: 480px) {
   .login-page {
-    padding: 0; /* Remove padding to use full screen width */
+    padding: 0;
   }
 
   .login-wrapper {
-    border-radius: 0; /* Remove border radius for a full-screen feel */
-    min-height: 100vh;
+    /* Let the wrapper take the full screen height and width on mobile */
+    width: 100%;
+    height: 100vh;
+    border-radius: 0;
   }
-
-  .login-image {
-    display: none;
-  }
-
+  
   .login-container {
-    padding: 30px 25px;
+    padding: 24px;
+  }
+
+  .login-container h2 {
+    font-size: 22px;
   }
 }
