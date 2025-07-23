@@ -19,7 +19,6 @@ export default function Login({ onLogin }) {
 
       localStorage.setItem('token', res.data.token);
       localStorage.setItem('username', username);
-      console.log("Login successful", res.data);
       setMessage('Login successful!');
       onLogin(); 
       navigate('/notes');
