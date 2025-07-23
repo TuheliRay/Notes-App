@@ -6,13 +6,15 @@ const PORT = process.env.PORT || 5000;
 
 const app = express();
 app.use(cors({
-  origin: [
-    'https://notes-app-sand-gamma.vercel.app' 
-  ]
+  origin:'https://notes-app-sand-gamma.vercel.app' ,
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"],
 }));
 app.use(express.json());
 
 // Routes
+const authRoutes = require("./routes/auth");
+app.use("/api/auth", authRoutes);
 const notesRoutes = require("./routes/notes");
 app.use("/api/notes", notesRoutes);
 
