@@ -168,6 +168,7 @@
     width: 100%;
     max-width: none;
     padding: 40px;
+    border-radius: 12px 12px 0 0;
   }
 
   .login-image {
@@ -192,5 +193,6 @@
 
   .login-container {
     padding: 30px 25px;
+    border-radius: 12px;
   }
 }
