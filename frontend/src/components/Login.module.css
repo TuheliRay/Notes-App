@@ -161,18 +161,17 @@
 /* --- Responsive Adjustments --- */
 @media (max-width: 768px) {
   .login-wrapper {
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
 
   .login-container {
     width: 100%;
     max-width: none;
-    padding: 40px;
     border-radius: 12px 12px 0 0;
   }
 
   .login-image {
-    height: 250px;
+    height: 200px;
     flex-shrink: 0;
   }
 }
@@ -183,8 +182,10 @@
   }
 
   .login-wrapper {
-    border-radius: 0; /* Remove border radius for a full-screen feel */
-    min-height: 100vh;
+    border-radius: 0;
+    /* Ensures it fills the screen height */
+    height: 100vh;
+    width: 100vw;
   }
 
   .login-image {
@@ -193,6 +194,9 @@
 
   .login-container {
     padding: 30px 25px;
-    border-radius: 12px;
+    /* Full border radius since image is hidden */
+    border-radius: 0;
+    /* Ensure it takes full height and centers content */
+    flex-grow: 1;
   }
 }
