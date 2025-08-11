@@ -166,6 +166,7 @@
 
   .login-container {
     border-radius: 12px 12px 0 0;
+    margin-bottom: 18px; 
   }
 
   .login-image {

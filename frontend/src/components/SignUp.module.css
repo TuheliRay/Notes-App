@@ -173,8 +173,7 @@
 
   .signup-wrapper {
     width: 100%;
-    max-width: 100%;
-    border-radius: 12px;
+    max-width: calc(100% - 40px); 
   }
 
   .signup-image {
