@@ -188,6 +188,8 @@
     width: 90%;
     max-width: 400px;
     border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 100px;
   }
 
   .login-image {

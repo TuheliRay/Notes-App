@@ -164,8 +164,8 @@
     width: 90%; 
     max-width: 400px;
     flex-direction: column;
-    padding: 30px;
-    margin-bottom: 90px; 
+    padding: 25px;
+    margin-bottom: 100px; 
   }
 
   .signup-image {
